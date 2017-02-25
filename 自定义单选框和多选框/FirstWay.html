@@ -1,0 +1,71 @@
+<!--
+这次实验demo主要是运用了伪元素来勾画自定义的单选框和多选框，由于大部分样式需要自己手动写出来，所以如果出现复制一点的图形，运用这个方法就不是很适合，
+会导致代码量增加，而且，运用了伪元素，不方便js进行交互。但是该方法适合样式简单的图形运用。
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        input{
+            display: none;
+        }
+        /*自动画出和选择框差不多的样式*/
+        input[type="checkbox"]+label::before{
+
+            display:block;    /*如果选择了inline-block则会出现很大的问题，选择前后两个样式会进行跳动，方块不在设定的宽度和高度中*/
+            content: "";
+            border: 1px solid rgb(217,217,217);   /*利用采色器获取对应的rgb颜色*/
+            width: 16px;
+            height:16px;
+            margin: 5px;
+        }
+        /*自动画出和单选框差不多的样式*/
+        input[type="radio"]+label::before{
+            display: block;        /*如果选择了inline-block则会出现很大的问题，选择前后两个样式会进行跳动，方块不在设定的宽度和高度中*/
+            content: "";
+            border: 1px solid rgb(217,217,217) ; /*利用采色器获取对应的rgb颜色*/
+            border-radius: 50%;
+            width: 16px;
+            height:16px;
+            margin: 5px;
+
+        }
+        /*自动画出和单选框差不多的样式*/
+        input[type="radio"]:checked+label::before{
+            text-align: center;
+            content: "●";          /*运用符号来模拟单选框内部的圆，并修改大小来达到相同的效果，由于是content添加的文本，所以大小通过font-size来设定，颜色用color*/
+            border: 1px solid rgb(216,67,57);
+            color:rgb(216,67,57);
+            font-size: 16px;
+            width: 16px;
+            height:16px;
+            border-radius:50%;
+            line-height: 14px;          /*垂直居中，按理应该和高度一样，但是运行发现，离中间位置差一点，修改后达成预期的效果*/
+            margin: 5px;
+
+        }
+        /*用法和单选框差不多*/
+        input[type="checkbox"]:checked+label::before{
+            content: "√";
+            font-size: 12px;
+            border: 1px solid rgb(216,67,57);
+            color:rgb(216,67,57);
+            text-align: center;
+            width: 16px;
+            height:16px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+        <input type="radio" id="radioUnChecked" name="boxUnChecked"/><label for="radioUnChecked" ></label>
+        <input type="radio" id="boxUnChecked" name="boxUnChecked"/><label for="boxUnChecked"></label>
+        <input type="checkbox" id="radioChecked"  name="boxChecked"/><label for="radioChecked"></label>
+        <input type="checkbox" id="boxChecked" name="boxChecked"/><label for="boxChecked"></label>
+</div>
+</body>
+</html>
