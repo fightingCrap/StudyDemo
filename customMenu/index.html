@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #menu{
+            position: absolute;
+            display: none;
+            height:110px;
+            width:300px;
+            border-radius: 5px;
+            border: 1px solid rgb(208,208,208);
+        }
+        ul li{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 24px;
+            height:50%;
+        }
+        div{
+            height:50px;
+            width: 100px;
+            border: 1px solid rgb(208,208,208);
+        }
+        .center{
+            vertical-align: middle;
+            margin: 0 auto;
+        }
+        .left_bottom{
+            position: absolute;
+            bottom:0;
+            left:0;
+        }
+        .left_top{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .right_bottom{
+            position: absolute;
+            bottom:0;
+            right:0;
+        }
+        .right_top{
+            position: absolute;
+            top:0;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li>Menu&nbsp;Item&nbsp;1</li>
+    <li>Menu&nbsp;Item&nbsp;2</li>
+</ul>
+<!--设立几个点击点，方便测试-->
+<div oncontextmenu="showMenu()" class="center"></div>
+<div oncontextmenu="showMenu()" class="right_top"></div>
+<div oncontextmenu="showMenu()" class="left_top"></div>
+<div oncontextmenu="showMenu()" class="right_bottom"></div>
+<div oncontextmenu="showMenu()" class="left_bottom"></div>
+<script>
+    /*把js代码放到body内容后面是避免了在页面还没有加载完成，导致DOM获取对象的style为空。*/
+    var menu =document.getElementById("menu");/*获取DOM对象*/
+    function showMenu(ev) {
+        var test = ev || event;
+        menu.style.display = "block";
+        var bodyHeight = document.documentElement.clientHeight; /*获取body的高度*/
+        var bodyWidth = document.documentElement.clientWidth;/*获取body的宽度*/
+        if (test.clientX >bodyWidth - menu.offsetWidth) {
+            menu.style.left = test.clientX - menu.offsetWidth + "px";
+        }
+        else {
+            menu.style.left = test.clientX + "px";
+        }
+
+        if (test.clientY > bodyHeight - menu.offsetHeight) {
+            menu.style.top = test.clientY - menu.offsetHeight + "px";
+        }
+        else {
+            menu.style.top = test.clientY + "px";
+        }
+        event.cancelBubble = true;   /*取消冒泡事件*/
+        event.returnValue = false;  /*取消右键的原来的弹框，和下面的return false连用，避免的兼容性的问题。*/
+        return false;
+    };
+    document.onclick = function () { /*取消弹框*/
+        menu.style.display = "none";
+    }
+</script>
+</body>
+</html>
