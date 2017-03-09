@@ -1,0 +1,155 @@
+body{
+    margin: 0 40px;
+    padding:0;
+    background-color: black;
+}
+header{
+    width: 1282px;
+    height: 62px;
+    background-color: rgb(51,51,51);
+    position: relative;
+}
+header img{
+    height:58px;
+    width: 268px;
+    margin-left: 5px;
+}
+header ul{
+    position: absolute;
+    top:0;
+    right:15px;
+    padding-right: 10px;
+    margin: 0;
+    line-height: 62px;
+}
+header ul li{
+    display: inline;
+    font-size: 12px;
+    color:white;
+    margin-left: 10px;
+}
+header ul li:last-child{
+    color:rgb(64,70,82);
+}
+main{
+    background-color: rgb(222,222,222);
+    width:1280px;
+    padding-top: 20px;
+}
+article,aside{
+    background-color: white;
+    width: 1190px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 20px;
+    margin-top: 20px;
+}
+main article:first-child{
+    margin-top: 0;
+}
+article h2+h2{
+    font-size: 16px;
+    color: rgb(106,103,98);
+}
+article h2+p{
+    font-size: 11px;
+    color: rgb(127,121,125);
+}
+.text{
+    line-height: 1.5;
+    font-size: 18px;
+    text-indent: 2em;
+}
+main article div{
+    text-align: center;
+    border: 1px solid black;
+    padding: 0px 10px 10px 10px;
+    width: 110px;
+    margin-bottom:15px;
+    margin-left: 40px;
+}
+main article div img{
+    height: 80px;
+    width: 100px;
+}
+main article div p{
+   font-size: 12px;
+}
+main article table{
+    border-right:1px solid rgb(204,204,204);border-bottom:1px solid rgb(204,204,204);
+}
+main article table td{
+    border-left:1px solid rgb(204,204,204);border-top:1px solid rgb(204,204,204);
+}
+main article table tr th{
+    background-color: rgb(51,51,51);
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    width:497px;
+}
+main article table tr th:last-child{
+
+    width:210px;
+}
+main article table tr:last-child{
+
+     background-color: rgb(204,204,204);
+     font-size: 12px;
+     font-weight: 700;
+
+ }
+aside div{
+    display: block;
+    margin: 0;
+}
+aside div >span{
+    float: left;
+    text-align: right;
+    width: 20%;
+    padding-right: 20px;
+    margin-top: 10px;
+}
+aside div input{
+    border: 1px solid #DADADA;
+    color: #888;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    height: 30px;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+aside div input[type="radio"],input[type="checkbox"]{
+    height: 12px;
+    text-align: center;
+    margin-top: 15px;
+}
+.button{
+    background-color: blue;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height:50px;
+    width: 95%;
+    margin-top: 30px;
+}
+footer p{
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+.styletext{
+    margin-bottom: 16px;
+    margin-left: 260px;
+    margin-top: 0;
+    color: rgb(135,147,159);
+    font-size: 14px;
+}
