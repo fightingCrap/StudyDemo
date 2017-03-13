@@ -1,0 +1,127 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+    <style>
+        button{
+            border-radius: 5px;
+            background-color: white;
+        }
+        #leftout{
+            margin-left: 20px;
+        }
+        ul li{
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            font-size: 13px;
+            color: white;
+            margin-left: 10px;
+            float: left;
+            list-style: none;
+        }
+        ul{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="input" name="sss"/>
+<button id="leftin">左侧入</button>
+<button id="rightin">右侧入</button>
+<button id="leftout" >左侧出</button>
+<button id="rightout">右侧出</button>
+<ul id="list">
+
+</ul>
+<script type="text/javascript">
+    var data=new Array();
+    var textinput=  document.getElementById("input");
+    /**
+     * getData方法
+     * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
+     * 返回一个数组，格式见函数中示例
+     */
+    function leftin() {
+        /*
+         coding here
+         */
+        if(textinput.value!="")
+        {
+            data.unshift(textinput.value);
+        }
+        else alert("不能为空");
+        /*
+         data = [
+         ["北京", 90],
+         ["北京", 90]
+         ……
+         ]
+         */
+        render();
+
+    }
+    function rightin() {
+        /*
+         coding here
+         */
+        if(textinput.value!="")
+        {
+            data.push(textinput.value);
+        }
+        else alert("不能为空");
+        /*
+         data = [
+         ["北京", 90],
+         ["北京", 90]
+         ……
+         ]
+         */
+        render();
+    }
+
+    /**
+     * sortAqiData
+     * 按空气质量对data进行从小到大的排序
+     * 返回一个排序后的数组
+     */
+    function leftout() {
+        data.shift();
+        render();
+    }
+    function rightout() {
+        data.pop();
+        render();
+    }
+    /**
+     * render
+     * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
+     * 格式见ul中的注释的部分
+     */
+    function render() {
+        var Ul=document.getElementById("list");
+        Ul.innerHTML="";
+        for(let i=0;i<data.length;i++)
+        {
+            Ul.innerHTML+=`<li>${data[i]}</li>`;
+        }
+    }
+
+
+
+    function init() {
+
+        // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+        document.getElementById("leftin").addEventListener("click",leftin);
+        document.getElementById("leftout").addEventListener("click",leftout);
+        document.getElementById("rightin").addEventListener("click",rightin);
+        document.getElementById("rightout").addEventListener("click",rightout);
+    }
+
+    init();
+
+</script>
+</body>
+</html>
